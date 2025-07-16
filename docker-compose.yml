@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: meletto
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    ports:
+      - '8889:3306'
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - meletto-net
+
+  backend:
+    build: .
+    restart: always
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      DB_DATABASE: meletto
+      JWT_SECRET: supersecretkey
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    networks:
+      - meletto-net
+    # .env dosyan varsa aşağıdaki satırı açabilirsin
+    # env_file:
+    #   - .env
+
+volumes:
+  db_data:
+
+networks:
+  meletto-net: 
