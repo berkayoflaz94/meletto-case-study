@@ -1,6 +1,6 @@
 # Meletto Case Study
 
-This project is a **Node.js + TypeScript** backend API providing basic e-commerce functionality. It offers product, category, cart, and order management. The API features JWT-based authentication and role-based access control. API documentation is available via Swagger/OpenAPI.
+This project is a **Node.js + TypeScript** backend API providing basic e-commerce functionality. It offers product, category, cart, and order management. The API features JWT-based authentication and role-based access control. API documentation is available via Swagger.
 
 ## 🚀 Setup & Running
 
